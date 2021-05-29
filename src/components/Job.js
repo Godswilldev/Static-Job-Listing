@@ -9,6 +9,7 @@ export default class Job extends Component {
       <div>
         {this.state.Jobs.map((job) => (
           <div key={job.id} className="job">
+            <h1>{job.id}</h1>
             <img src={job.logo} alt={`${job.company} logo`} />
             <h1>{job.company}</h1>
             <h1>{job.new && "New"}</h1>
