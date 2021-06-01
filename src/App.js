@@ -4,7 +4,8 @@ import Job from "./components/Job";
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="app">
+        <div className="header"></div>
         <Job />
       </div>
     );

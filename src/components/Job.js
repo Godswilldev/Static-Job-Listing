@@ -68,43 +68,95 @@ export default class Job extends Component {
 
   render() {
     return (
-      <div key={uuid()}>
-        <div className="filters">
-          {this.state.filters.map((f, idx) => (
-            <span key={uuid()}>
-              {f} <button onClick={() => this.deleteFilter(f)}>X</button>
-            </span>
-          ))}
-
-          {this.state.filters.length >= 1 && (
-            <button onClick={this.reset}>Clear</button>
-          )}
-        </div>
-        {this.state.Jobs.map((job, idx) => (
-          <div key={uuid()} className="job">
-            <h1>{job.id}</h1>
-            <img src={job.logo} alt={`${job.company} logo`} />
-            <h1>{job.company}</h1>
-            <h1>{job.new && "New"}</h1>
-            <h1>{job.featured && "Featured"}</h1>
-            <h1>{job.position}</h1>
-            <h1 onClick={() => this.applyFilter(job.role)}>{job.role}</h1>
-            <h1 onClick={() => this.applyFilter(job.level)}>{job.level}</h1>
-            <h1>{job.postedAt}</h1>
-            <h1>{job.contract}</h1>
-            <h1>{job.location}</h1>
-            {job.languages.map((l, idx) => (
-              <h2 key={uuid()} onClick={() => this.applyFilter(l)}>
-                {l}
-              </h2>
-            ))}
-            {job.tools.map((t, idx) => (
-              <h2 key={uuid()} onClick={() => this.applyFilter(t)}>
-                {t}
-              </h2>
+      <div className="job">
+        <div className={this.state.filters.length >= 1 && "job__filters"}>
+          <div>
+            {this.state.filters.map((f) => (
+              <span className="job__filters--name" key={uuid()}>
+                {f}
+                <button
+                  className="job__filters--btn"
+                  onClick={() => this.deleteFilter(f)}
+                >
+                  X
+                </button>
+              </span>
             ))}
           </div>
-        ))}
+          <div>
+            {this.state.filters.length >= 1 && (
+              <button className="job__filters--clear" onClick={this.reset}>
+                Clear
+              </button>
+            )}
+          </div>
+        </div>
+
+        <div>
+          {this.state.Jobs.map((job) => (
+            <div key={uuid()} className="job__list">
+              <div className="job__list--left">
+                <img
+                  className="job__list--left---img"
+                  src={job.logo}
+                  alt={`${job.company} logo`}
+                />
+                <div className="job__list--left---infos">
+                  <div className="job__list--left---infos---type">
+                    <h3 className="job__list--company">{job.company}</h3>
+                    <h3 className={job.new && "job__list--new"}>
+                      {job.new && "New"}
+                    </h3>
+                    <h3 className={job.featured && "job__list--featured"}>
+                      {job.featured && "Featured"}
+                    </h3>
+                  </div>
+
+                  <h3 className="job__list--position">{job.position}</h3>
+
+                  <div className="job__list--left---infos---type">
+                    <p className="job__list--postedAt">{job.postedAt} </p>
+                    <p className="job__list--contract">{job.contract}</p>
+                    <p className="job__list--location">{job.location}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="job__list--right">
+                <h2
+                  className="job__list--role right"
+                  onClick={() => this.applyFilter(job.role)}
+                >
+                  {job.role}
+                </h2>
+                <h3
+                  className="job__list--level right"
+                  onClick={() => this.applyFilter(job.level)}
+                >
+                  {job.level}
+                </h3>
+                {job.languages.map((l, idx) => (
+                  <h2
+                    className="job__list--languages right"
+                    key={uuid()}
+                    onClick={() => this.applyFilter(l)}
+                  >
+                    {l}
+                  </h2>
+                ))}
+                {job.tools.map((t) => (
+                  <h2
+                    className="job__list--tools right"
+                    key={uuid()}
+                    onClick={() => this.applyFilter(t)}
+                  >
+                    {t}
+                  </h2>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

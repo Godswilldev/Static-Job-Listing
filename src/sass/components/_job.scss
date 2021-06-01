@@ -1,5 +1,142 @@
+.header {
+    background-image: url(../../images/bg-header-desktop.svg);
+    height: 20vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: $Desaturated-Dark-Cyan;
+    margin-bottom: 5rem;
+}
+
+.app {
+    background-color: $Light-Grayish-Cyan;
+    height: 100vh;
+    overflow: scroll;
+}
+
 .job {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    &__filters {
+        position: relative;
+        top: -9rem;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3rem;
+        border-radius: 1rem;
+        box-shadow: 0.5rem 0.5rem 1rem rgba($Desaturated-Dark-Cyan, $alpha: 0.5);
+        transition: 0.5s all;
+        &--name {
+            font-size: 2rem;
+            color: $Desaturated-Dark-Cyan;
+            background-color: $Light-Grayish-Cyan;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-right: 2rem;
+        }
+        &--btn {
+            background-color: $Desaturated-Dark-Cyan;
+            color: $Light-Grayish-Cyan;
+            padding: 0.7rem;
+            border: none;
+            font-weight: 700;
+            outline: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: 0.5s all;
+            margin-left: 0.7rem;
+            &:hover {
+                background-color: $Very-Dark-Grayish-Cyan;
+            }
+        }
+        &--clear {
+            font-size: 2.2rem;
+            border: none;
+            outline: none;
+            color: $Desaturated-Dark-Cyan;
+            background-color: transparent;
+            cursor: pointer;
+            transition: 0.3s all;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        justify-content: space-between;
+        margin-bottom: 3rem;
+        padding: 2rem 4rem;
+        border-radius: 1rem;
+        box-shadow: 0.5rem 0.5rem 1rem rgba($Desaturated-Dark-Cyan, $alpha: 0.5);
+
+        &--left {
+            display: flex;
+            align-items: center;
+
+            &---img {
+                width: 10rem;
+                margin-right: 1rem;
+            }
+            &---infos {
+                margin-left: 2rem;
+                &---type {
+                    display: flex;
+                }
+            }
+        }
+        &--right {
+            display: flex;
+            align-items: center;
+
+            .right {
+                background-color: $Light-Grayish-Cyan;
+                margin: 1rem;
+                padding: 1rem;
+                border-radius: 0.5rem;
+                color: $Desaturated-Dark-Cyan;
+                cursor: pointer;
+            }
+        }
+        &--position {
+            font-size: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        &--new,
+        &--featured {
+            background-color: $Very-Dark-Grayish-Cyan;
+            color: $Light-Grayish-Cyan;
+            border-radius: 10rem;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            margin-bottom: 1rem;
+        }
+        &--new {
+            background-color: $Desaturated-Dark-Cyan;
+        }
+        &--company {
+            background-color: transparent;
+            color: $Desaturated-Dark-Cyan;
+            margin: 0;
+            padding: 0.5rem 0;
+        }
+        &--postedAt,
+        &--contract,
+        &--location {
+            font-weight: 500;
+            font-size: 1.3rem;
+            margin-top: 1rem;
+            color: $Dark-Grayish-Cyan;
+        }
+        &--contract,
+        &--location {
+            margin-left: 2rem;
+        }
+    }
 }
