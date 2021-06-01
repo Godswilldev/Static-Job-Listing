@@ -27,7 +27,7 @@
         padding: 3rem;
         border-radius: 1rem;
         box-shadow: 0.5rem 0.5rem 1rem rgba($Desaturated-Dark-Cyan, $alpha: 0.5);
-        transition: 0.5s all;
+        transition: 0.2s all;
         &--name {
             font-size: 2rem;
             color: $Desaturated-Dark-Cyan;
@@ -45,7 +45,7 @@
             outline: none;
             border-radius: 0.5rem;
             cursor: pointer;
-            transition: 0.5s all;
+            transition: 0.2s all;
             margin-left: 0.7rem;
             &:hover {
                 background-color: $Very-Dark-Grayish-Cyan;
@@ -58,7 +58,7 @@
             color: $Desaturated-Dark-Cyan;
             background-color: transparent;
             cursor: pointer;
-            transition: 0.3s all;
+            transition: 0.2s all;
             &:hover {
                 text-decoration: underline;
             }
