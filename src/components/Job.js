@@ -21,18 +21,15 @@ export default class Job extends Component {
 
     this.setState({
       Jobs: this.currentJobCopy.filter((job) => {
-        if (job.role.toLowerCase() === filterValue.toLowerCase()) {
-          return job.role.toLowerCase() === filterValue.toLowerCase();
-        }
-        if (job.level.toLowerCase() === filterValue.toLowerCase()) {
-          return job.level.toLowerCase() === filterValue.toLowerCase();
-        }
-        if (job.languages.includes(filterValue)) {
-          return job.languages.includes(filterValue);
-        }
-        if (job.tools.includes(filterValue)) {
-          return job.tools.includes(filterValue);
-        }
+        return (
+          (job.role.toLowerCase() === filterValue.toLowerCase() &&
+            job.role.toLowerCase() === filterValue.toLowerCase()) ||
+          (job.level.toLowerCase() === filterValue.toLowerCase() &&
+            job.level.toLowerCase() === filterValue.toLowerCase()) ||
+          (job.languages.includes(filterValue) &&
+            job.languages.includes(filterValue)) ||
+          (job.tools.includes(filterValue) && job.tools.includes(filterValue))
+        );
       }),
     });
   };
@@ -44,18 +41,15 @@ export default class Job extends Component {
     }));
     this.setState({
       Jobs: this.currentJobCopy.filter((job) => {
-        if (job.role.toLowerCase() !== filterValue.toLowerCase()) {
-          return job.role.toLowerCase() !== filterValue.toLowerCase();
-        }
-        if (job.level.toLowerCase() === filterValue.toLowerCase()) {
-          return job.level.toLowerCase() !== filterValue.toLowerCase();
-        }
-        if (job.languages.includes(filterValue)) {
-          return !job.languages.includes(filterValue);
-        }
-        if (job.tools.includes(filterValue)) {
-          return !job.tools.includes(filterValue);
-        }
+        return (
+          (job.role.toLowerCase() === filterValue.toLowerCase() &&
+            job.role.toLowerCase() !== filterValue.toLowerCase()) ||
+          (job.level.toLowerCase() === filterValue.toLowerCase() &&
+            job.level.toLowerCase() !== filterValue.toLowerCase()) ||
+          (job.languages.includes(filterValue) &&
+            !job.languages.includes(filterValue)) ||
+          (job.tools.includes(filterValue) && !job.tools.includes(filterValue))
+        );
       }),
     });
   };
