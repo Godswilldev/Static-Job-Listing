@@ -69,7 +69,11 @@ export default class Job extends Component {
   render() {
     return (
       <div className="job">
-        <div className={this.state.filters.length >= 1 && "job__filters"}>
+        <div
+          className={
+            this.state.filters.length >= 1 ? "job__filters" : undefined
+          }
+        >
           <div>
             {this.state.filters.map((f) => (
               <span className="job__filters--name" key={uuid()}>
@@ -104,10 +108,14 @@ export default class Job extends Component {
                 <div className="job__list--left---infos">
                   <div className="job__list--left---infos---type">
                     <h3 className="job__list--company">{job.company}</h3>
-                    <h3 className={job.new && "job__list--new"}>
+                    <h3 className={job.new ? "job__list--new" : undefined}>
                       {job.new && "New"}
                     </h3>
-                    <h3 className={job.featured && "job__list--featured"}>
+                    <h3
+                      className={
+                        job.featured ? "job__list--featured" : undefined
+                      }
+                    >
                       {job.featured && "Featured"}
                     </h3>
                   </div>
